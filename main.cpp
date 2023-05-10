@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-    std::vector<City> cities = FileLManagement::read_file_to_vector("france_10.tsp");
+    std::vector<City> cities = FileLManagement::read_file_to_vector("france_500.tsp");
     //Print cities
     cout << "Number of cities: " << cities.size() << endl;
     for (int i = 0; i < cities.size(); ++i) {
@@ -67,6 +67,41 @@ int main() {
     //Question 5.3 Combien de solutions voisines possibles pour la ré-insertion ?
     cout << "Number of neighbors for reinsertion from index: " << solution_greeedy.size() - 1 << endl;
 
+    //Question 6.1
+    std::vector<int> solution_two_opt = Solution().two_opt(solution_greeedy, 1, 2);
+    //Print two_opt
+    for (int i = 0; i < solution_two_opt.size(); ++i) {
+        cout << solution_two_opt[i] << " ";
+    }
+    cout << endl;
+    cout << "Evaluation of two_opt solution: " << Solution().evaluate(cities, solution_two_opt) << endl;
+
+    //Question 6.2
+    std::vector<int> solution_two_opt_by_index = Solution().two_opt_from_index(solution_greeedy, 1);
+    //Print two_opt_by_index
+    for (int i = 0; i < solution_two_opt_by_index.size(); ++i) {
+        cout << solution_two_opt_by_index[i] << " ";
+    }
+    cout << endl;
+    cout << "Evaluation of two_opt solution: " << Solution().evaluate(cities, solution_two_opt_by_index) << endl;
+
+    //Question 7.1
+    std::vector<int> solution_best_ameliorate = Solution().best_ameliorate(solution_greeedy, solution_two_opt_by_index, cities);
+    //Print best_ameliorate
+    for (int i = 0; i < solution_best_ameliorate.size(); ++i) {
+        cout << solution_best_ameliorate[i] << " ";
+    }
+    cout << endl;
+    cout << "Evaluation of best_ameliorate solution: " << Solution().evaluate(cities, solution_best_ameliorate) << endl;
+
+    //Question 7.2
+    std::vector<int> solution_algorithme_descente = Solution().algorithme_descente(solution_greeedy, solution_two_opt_by_index, cities);
+    //Print best_ameliorate
+    for (int i = 0; i < solution_algorithme_descente.size(); ++i) {
+        cout << solution_algorithme_descente[i] << " ";
+    }
+    cout << endl;
+    cout << "Evaluation of best_ameliorate solution: " << Solution().evaluate(cities, solution_algorithme_descente) << endl;
 
     return 0;
 }

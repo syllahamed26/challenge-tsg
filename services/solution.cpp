@@ -14,7 +14,7 @@ using namespace std;
 class Solution {
 private:
     const double PI = 3.141592;
-    const double RTERRE = 6378.137;
+    const double R_TERRE = 6378.137;
 public:
 
     double evaluate(const std::vector<City>& cities, const std::vector<int>& ordre_livraison)
@@ -78,7 +78,7 @@ public:
 
         double arc_cos_arg = sin_lat1 * sin_lat2 + cos_lat1 * cos_lat2 * cos_delta_long;
 
-        double distance = RTERRE * acos(arc_cos_arg);
+        double distance = R_TERRE * acos(arc_cos_arg);
 
         return distance;
     }
@@ -182,4 +182,46 @@ public:
         return permutation_from_index(solution, index);
     }
 
+    // question 6.1
+    std::vector<int> two_opt(std::vector<int>&solution, int i, int j) {
+        std::reverse(solution.begin() + i, solution.begin() + j + 1);
+        return solution;
+    }
+
+    // question 6.2
+    std::vector<int> two_opt_from_index(std::vector<int> &s, int index) {
+        int n = (1 + sqrt(1 + 8 * index)) /2;
+        int i = index - (n * (n-1)) /2;
+        int j = n - 1;
+        return two_opt(s,i,j);
+    }
+
+    // question 7.1
+    std::vector<int> best_ameliorate(std::vector<int>&solution, std::vector<int>& neighbor, const std::vector<City>& cities){
+        std::vector<int> best_solution = solution;
+        double best_score = evaluate(cities,solution);
+        for(int i = 0; i < number_of_neighbors(solution.size()); i++){
+            std::vector<int> current_solution = two_opt_from_index(solution,i);
+            double current_score = evaluate(cities,current_solution);
+            if(current_score < best_score){
+                best_solution = current_solution;}
+        }
+
+        return best_solution;
+    }
+
+    // question 7.2
+    std::vector<int> algorithme_descente(std::vector<int> &s, std::vector<int> &v, std::vector<City> &cities) {
+        std::vector<int> solution = s;
+        double distance_solution = evaluate(cities, v);
+        double meilleur_distance = 0;
+        std::vector<int> meilleur_solution;
+        while(meilleur_distance > distance_solution){
+            meilleur_solution = solution;
+            meilleur_distance = distance_solution;
+            solution = best_ameliorate(solution, v, cities);
+            distance_solution = evaluate(cities, solution);
+        }
+        return meilleur_solution;
+    }
 };
