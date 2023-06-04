@@ -11,12 +11,13 @@
 #include <algorithm>
 #include <random>
 #include "score.h"
+#include "typeSolution.h"
 
 
 class typeRecherche {
 
 public:
-    virtual std::vector<int> recherche(std::vector<int>& solution, std::vector<int>& neighbor, const std::vector<City>& cities) = 0;
+    virtual std::vector<int> recherche(std::vector<int>& solution, std::vector<int>& neighbor, const std::vector<City>& cities, typeSolution &typeSolution) = 0;
 };
 
 
