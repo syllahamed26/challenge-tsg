@@ -67,6 +67,12 @@ build CMakeFiles/challenge_tsp.dir/model/City.cpp.o: CXX_COMPILER__challenge_tsp
   OBJECT_DIR = CMakeFiles/challenge_tsp.dir
   OBJECT_FILE_DIR = CMakeFiles/challenge_tsp.dir/model
 
+build CMakeFiles/challenge_tsp.dir/services/typeSolution.cpp.o: CXX_COMPILER__challenge_tsp_Debug /Users/ivoriandev/Documents/hamed/cours/c++/challenge-tsp/services/typeSolution.cpp || cmake_object_order_depends_target_challenge_tsp
+  DEP_FILE = CMakeFiles/challenge_tsp.dir/services/typeSolution.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/challenge_tsp.dir
+  OBJECT_FILE_DIR = CMakeFiles/challenge_tsp.dir/services
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target challenge_tsp
@@ -75,7 +81,7 @@ build CMakeFiles/challenge_tsp.dir/model/City.cpp.o: CXX_COMPILER__challenge_tsp
 #############################################
 # Link the executable challenge_tsp
 
-build challenge_tsp: CXX_EXECUTABLE_LINKER__challenge_tsp_Debug CMakeFiles/challenge_tsp.dir/main.cpp.o CMakeFiles/challenge_tsp.dir/services/FileManagement.cpp.o CMakeFiles/challenge_tsp.dir/model/City.cpp.o
+build challenge_tsp: CXX_EXECUTABLE_LINKER__challenge_tsp_Debug CMakeFiles/challenge_tsp.dir/main.cpp.o CMakeFiles/challenge_tsp.dir/services/FileManagement.cpp.o CMakeFiles/challenge_tsp.dir/model/City.cpp.o CMakeFiles/challenge_tsp.dir/services/typeSolution.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk
   OBJECT_DIR = CMakeFiles/challenge_tsp.dir
   POST_BUILD = :

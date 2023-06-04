@@ -113,5 +113,15 @@ int main() {
     cout << endl;
     cout << "Evaluation of best_ameliorate solution: " << score.evaluate(cities, solution_algorithme_descente) << endl;
 
+    //voisin de solution_algorithme_descente
+    //recherche locale itere
+    std::vector<int> solution_recherche_locale_itere = twoOpt.recherche_locale_itere(cities, solution_greeedy,solution_best_ameliorate, 10000);
+    //Print best_ameliorate
+    for (int i : solution_recherche_locale_itere) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "Evaluation of best_ameliorate solution: " << score.evaluate(cities, solution_recherche_locale_itere) << endl;
+
     return 0;
 }
