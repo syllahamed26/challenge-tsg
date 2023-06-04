@@ -6,12 +6,12 @@
 #include <cmath>
 #include <algorithm>
 
-std::vector<int> solution(std::vector<int> &s, int i, int j) {
+std::vector<int> twoOpt::solution(std::vector<int> &s, int i, int j) {
     std::reverse(s.begin() + i, s.begin() + j + 1);
     return s;
 }
 
-std::vector<int> solution_from_index(std::vector<int> &s, int index) {
+std::vector<int> twoOpt::solution_from_index(std::vector<int> &s, int index) {
     int n = (1 + sqrt(1 + 8 * index)) /2;
     int i = index - (n * (n-1)) /2;
     int j = n - 1;

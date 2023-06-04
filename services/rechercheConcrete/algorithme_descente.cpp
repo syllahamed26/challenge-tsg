@@ -3,8 +3,9 @@
 //
 
 #include "algorithme_descente.h"
+#include "best_ameliorate.h"
 
-std::vector<int> recherche(std::vector<int> &solution, std::vector<int> &neighbor, const std::vector<City> &cities, typeSolution &typeSolution) {
+std::vector<int> algorithme_descente::recherche(std::vector<int> &solution, std::vector<int> &neighbor, const std::vector<City> &cities, typeSolution &typeSolution) {
     Score score = *new Score();
     std::vector<int> s = solution;
     double distance_solution = score.evaluate(cities, neighbor);

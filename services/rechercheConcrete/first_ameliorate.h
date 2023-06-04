@@ -12,8 +12,6 @@
 class first_ameliorate: public typeRecherche {
 
 public:
-
-
     std::vector<int> recherche(std::vector<int> &solution, std::vector<int> &neighbor, const std::vector<City> &cities, typeSolution &typeSolution) override;
 };
 

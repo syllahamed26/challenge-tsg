@@ -1,7 +1,0 @@
-# ninja log v5
-25	676	1683721273258428346	CMakeFiles/challenge_tsp.dir/model/City.cpp.o	5ad3b71324e79f81
-25	679	1683721273264362504	CMakeFiles/challenge_tsp.dir/services/FileManagement.cpp.o	1ae8a09d470e327e
-0	58	1685443201838523590	build.ninja	301db98a212e491e
-4	497	1683726462649740749	CMakeFiles/challenge_tsp.dir/services/solution.cpp.o	f1900e81d388d63f
-4	591	1683726462745090386	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
-591	636	1683726462792688787	challenge_tsp	e0a45d6e6cbbcd4

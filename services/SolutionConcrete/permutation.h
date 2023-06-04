@@ -9,7 +9,7 @@
 
 
 class permutation: public typeSolution {
-
+public:
     std::vector<int> solution_from_index(std::vector<int> &s, int index) override;
 
     std::vector<int> solution(std::vector<int> &s, int i, int j) override;
