@@ -97,7 +97,8 @@ int main() {
     cout << "Evaluation of two_opt solution: " << score.evaluate(cities, solution_two_opt_by_index) << endl;
 
     //Question 7.1
-    std::vector<int> solution_best_ameliorate = best_ameliorate().recherche(solution_greeedy, solution_two_opt_by_index, cities, twoOpt);
+    best_ameliorate best_ameliorate;
+    std::vector<int> solution_best_ameliorate = best_ameliorate.recherche(solution_greeedy, solution_two_opt_by_index, cities, twoOpt);
     //Print best_ameliorate
     for (int i = 0; i < solution_best_ameliorate.size(); ++i) {
         cout << solution_best_ameliorate[i] << " ";
@@ -133,7 +134,7 @@ int main() {
 
     //voisin de solution_algorithme_descente
     //recherche locale itere
-    std::vector<int> solution_recherche_locale_itere = twoOpt.recherche_locale_itere(cities, solution_greeedy,solution_best_ameliorate, 10000);
+    std::vector<int> solution_recherche_locale_itere = best_ameliorate.recherche_locale_itere(cities, solution_greeedy,solution_best_ameliorate, 10000, twoOpt);
     //Print best_ameliorate
     for (int i : solution_recherche_locale_itere) {
         cout << i << " ";
