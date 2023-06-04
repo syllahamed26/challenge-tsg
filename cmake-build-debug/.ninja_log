@@ -1,0 +1,19 @@
+# ninja log v5
+0	266	1685913242425669860	CMakeFiles/challenge_tsp.dir/model/City.cpp.o	5ad3b71324e79f81
+0	267	1685913242425635401	CMakeFiles/challenge_tsp.dir/services/typeSolution.cpp.o	62284eeb335690e5
+0	295	1685913242455091048	CMakeFiles/challenge_tsp.dir/services/FileManagement.cpp.o	1ae8a09d470e327e
+0	301	1685913242461599516	CMakeFiles/challenge_tsp.dir/services/typeRecherche.cpp.o	989f9a1c69869d7e
+0	401	1685913242560563665	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+401	426	1685913242588289340	challenge_tsp	b1128fd4a0c95188
+5	471	1685913358643907539	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+471	519	1685913358694573894	challenge_tsp	b1128fd4a0c95188
+4	435	1685913435339511351	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+436	484	1685913435389038946	challenge_tsp	b1128fd4a0c95188
+4	358	1685913448592556243	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+358	386	1685913448622860188	challenge_tsp	b1128fd4a0c95188
+5	357	1685913456390129996	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+357	384	1685913456418950930	challenge_tsp	b1128fd4a0c95188
+4	362	1685913468039422217	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+363	391	1685913468071217674	challenge_tsp	b1128fd4a0c95188
+4	410	1685913508622644924	CMakeFiles/challenge_tsp.dir/main.cpp.o	ae8c039a694d034f
+410	443	1685913508658085201	challenge_tsp	b1128fd4a0c95188
