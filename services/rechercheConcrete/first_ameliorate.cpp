@@ -4,15 +4,14 @@
 
 #include "first_ameliorate.h"
 
-std::vector<int> recherche(std::vector<int> &solution, std::vector<int> &neighbor, const std::vector<City> &cities) {
+std::vector<int> recherche(std::vector<int> &solution, std::vector<int> &neighbor, const std::vector<City> &cities, typeSolution &typeSolution) {
     Score score = *new Score();
     std::vector<int> best_solution = solution;
     double best_score = score.evaluate(cities, solution);
     bool found_improvement = false;
 
     for(int i = 0; i < score.number_of_neighbors(solution.size()); i++){
-        twoOpt twoopt = *new twoOpt();
-        std::vector<int> current_solution = twoopt.solution_from_index(solution, i);
+        std::vector<int> current_solution = typeSolution.solution_from_index(solution, i);
         double current_score = score.evaluate(cities, current_solution);
 
         if(current_score < best_score){

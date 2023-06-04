@@ -10,6 +10,7 @@
 
 class typeSolution {
 
+public:
     virtual std::vector<int> solution_from_index(std::vector<int> &s, int index) = 0;
     virtual std::vector<int> solution(std::vector<int> &s, int i, int j) = 0;
 
