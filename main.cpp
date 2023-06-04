@@ -9,6 +9,7 @@
 #include "services/rechercheConcrete/best_ameliorate.cpp"
 #include "services/rechercheConcrete/first_ameliorate.cpp"
 #include "services/rechercheConcrete/algorithme_descente.cpp"
+#include "services/rechercheConcrete/random_ameliorate.h"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ int main() {
     cout << "Evaluation of greedy solution: " << evaluation_of_greedy << endl;
 
     //Permutation
-    permutation permutation;
+    permutation permutation = *new class permutation();
     std::vector<int> permutationImp = permutation.solution(solution_greeedy, 1, 2);
     //Print permutation
     for (int i : permutationImp) {
@@ -55,7 +56,7 @@ int main() {
     cout << "Number of neighbors: " << score.number_of_neighbors(solution_greeedy.size()) << endl;
 
     //Reinsertion
-    reinsertion reinsertion;
+    reinsertion reinsertion = *new class reinsertion();
     std::vector<int> reinsertionImp = reinsertion.solution(solution_greeedy, 1, 2);
     //Print reinsertion
     for (int i : reinsertionImp) {
@@ -77,7 +78,7 @@ int main() {
     cout << "Number of neighbors for reinsertion from index: " << score.number_of_neighbors(reinsertion_by_index.size()) << endl;
 
     //Question 6.1
-    twoOpt twoOpt;
+    twoOpt twoOpt  = *new class twoOpt();
     std::vector<int> solution_two_opt = twoOpt.solution(solution_greeedy, 1, 2);
     //Print two_opt
     for (int i : solution_two_opt) {
@@ -111,7 +112,24 @@ int main() {
         cout << solution_algorithme_descente[i] << " ";
     }
     cout << endl;
-    cout << "Evaluation of best_ameliorate solution: " << score.evaluate(cities, solution_algorithme_descente) << endl;
+    cout << "Evaluation of algorithme descente solution: " << score.evaluate(cities, solution_algorithme_descente) << endl;
+
+    //Question 8.1
+    //Première améliorante
+    std::vector<int> solution_first_ameliorate = first_ameliorate().recherche(solution_greeedy, solution_two_opt_by_index, cities, twoOpt);
+
+    cout << solution_first_ameliorate[0] << " ";
+    cout << endl;
+    cout << "Evaluation of first_ameliorate solution: " << score.evaluate(cities, solution_first_ameliorate) << endl;
+
+    //Question 8.2
+    //Première améliorante aléatoire
+
+//    std::vector<int> solution_first_ameliorate_random = random_ameliorate().recherche(solution_greeedy, solution_two_opt_by_index, cities, twoOpt);
+//    cout << solution_first_ameliorate_random[0] << " ";
+//    cout << endl;
+//    cout << "Evaluation of first_ameliorate solution: " << score.evaluate(cities, solution_first_ameliorate_random) << endl;
+
 
     //voisin de solution_algorithme_descente
     //recherche locale itere
