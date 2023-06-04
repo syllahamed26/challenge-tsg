@@ -140,15 +140,14 @@ int main() {
     cout << endl;
     cout << "Evaluation of first_ameliorate solution: " << score.evaluate(cities, meilleure_ameliorante_reinsertion) << endl;
 
-    //voisin de solution_algorithme_descente
-    //recherche locale itere
+    //Question 10 & 11 : voisin de solution_algorithme_descente
     std::vector<int> solution_recherche_locale_itere = best_ameliorate.recherche_locale_itere(cities, solution_greeedy,solution_best_ameliorate, 10000, twoOpt);
-    //Print
     for (int i : solution_recherche_locale_itere) {
         cout << i << " ";
     }
     cout << endl;
-    cout << "Evaluation of best_ameliorate solution: " << score.evaluate(cities, solution_recherche_locale_itere) << endl;
+    cout << "Evaluation of best_ameliorate.recherche_locale_itere solution: " << score.evaluate(cities, solution_recherche_locale_itere) << endl;
+
 
     return 0;
 }
