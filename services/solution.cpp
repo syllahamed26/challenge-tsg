@@ -255,12 +255,11 @@ public:
         double best_score = evaluate(cities, solution);
         std::vector<int> indices(solution.size());
 
-        // Initialisation de la liste des indices
+
         for (int i = 0; i < solution.size(); i++) {
             indices[i] = i;
         }
 
-        // Mélanger les indices de manière aléatoire
         std::random_device rd;
         std::mt19937 g(rd());
         std::shuffle(indices.begin(), indices.end(), g);
@@ -271,7 +270,7 @@ public:
 
             if(current_score < best_score){
                 best_solution = current_solution;
-                break;  // Sortir de la boucle dès qu'une amélioration est trouvée
+                break;
             }
         }
 
@@ -279,5 +278,6 @@ public:
     }
 
     //question 9
+
 
 };
