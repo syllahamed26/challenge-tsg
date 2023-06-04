@@ -133,14 +133,14 @@ public:
         return (n * (n - 1)) / 2;
     }
 
-    vector<int> reinsertion(vector<int> solution, int i, int j) {
+    vector<int> reinsertion(std::vector<int>& solution, int i, int j) {
         int city = solution[i];
         solution.erase(solution.begin() + i);
         solution.insert(solution.begin() + j, city);
         return solution;
     }
 
-    vector<int> reinsertion_from_index(vector<int> s, int index) {
+    vector<int> reinsertion_from_index(std::vector<int>& s, int index) {
         int i, j;
         if (index <= s.size() - 2) {
             i = 0;
@@ -224,4 +224,60 @@ public:
         }
         return meilleur_solution;
     }
+
+    // question 8.1
+    std::vector<int> first_ameliorate(std::vector<int>&solution, std::vector<int>& neighbor, const std::vector<City>& cities){
+        std::vector<int> best_solution = solution;
+        double best_score = evaluate(cities, solution);
+        bool found_improvement = false;
+
+        for(int i = 0; i < number_of_neighbors(solution.size()); i++){
+            std::vector<int> current_solution = two_opt_from_index(solution, i);
+            double current_score = evaluate(cities, current_solution);
+
+            if(current_score < best_score){
+                best_solution = current_solution;
+                found_improvement = true;
+                break;
+            }
+        }
+
+        if(!found_improvement){
+            best_solution = solution;
+        }
+
+        return best_solution;
+    }
+
+    // question 8.2
+    std::vector<int> premiere_ameliorante_aleatoire(std::vector<int>& solution, std::vector<int>& neighbor, const std::vector<City>& cities){
+        std::vector<int> best_solution = solution;
+        double best_score = evaluate(cities, solution);
+        std::vector<int> indices(solution.size());
+
+        // Initialisation de la liste des indices
+        for (int i = 0; i < solution.size(); i++) {
+            indices[i] = i;
+        }
+
+        // Mélanger les indices de manière aléatoire
+        std::random_device rd;
+        std::mt19937 g(rd());
+        std::shuffle(indices.begin(), indices.end(), g);
+
+        for(int i = 0; i < indices.size(); i++){
+            std::vector<int> current_solution = two_opt_from_index(solution, indices[i]);
+            double current_score = evaluate(cities, current_solution);
+
+            if(current_score < best_score){
+                best_solution = current_solution;
+                break;  // Sortir de la boucle dès qu'une amélioration est trouvée
+            }
+        }
+
+        return best_solution;
+    }
+
+    //question 9
+
 };
